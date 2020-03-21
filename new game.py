@@ -53,7 +53,7 @@ class App:
             pygame.draw.line(self.display, WHITE, (i * 30 + i, 0), (i * 30 + i, HEIGHT), 1)
 
     def gameover(self):
-        # self.Scores.append(self.score)
+        
         leadx = HEIGHT // 3
         leady =  WIDTH// 2
         x = 30
@@ -92,8 +92,6 @@ class App:
 
                     High.write(str((self.snakelen - 1) * 5) + '\n')
                     High.close()
-                    #   self.Scores.append(str((self.snakelen - 1) * 5))
-                    # self.Scores.sort(reverse=True)
                     pygame.quit()
                     quit()
                 if event.type == KEYDOWN:
@@ -105,15 +103,9 @@ class App:
                         self.leady == WIDTH // 2
                         self.leadxchange = 0
                         self.leadychange = 0
-
-                        #  self.Scores.append((self.snakelen - 1) * 5)
-                        #     self.Scores.sort(reverse=True)
-             #           High.close()
                         main()
                     if event.key == K_q:
                         High.write(str((self.snakelen - 1) * 5) + '\n')
-                        #self.Scores.append((self.snakelen - 1) * 5)
-                        #self.Scores.sort(reverse=True)
                         High.close()
                         pygame.quit()
                         quit()
@@ -211,12 +203,10 @@ def main():
         display.fill(RED, rect=[game.foodx, game.foody, 30, 30])
         print(game.score)
         game.message('Score = ' + str((game.snakelen - 1) * 5), HEIGHT // 10, WIDTH // 11, 30, (0, 255, 0))
-        #  game.message('HighScore = ' + str((game.Scores[0]), HEIGHT // 10, WIDTH // 11, 30, (0, 255, 0))
         try:
             game.message('Highscore= ' + str(game.Scores[0]), HEIGHT // 10, WIDTH // 22, 30, (2, 255, 223))
         except:
             print('game_error')
-        #display.blit(head, [game.leadx, game.leady])
         pygame.display.update()
         CLOCK.tick(30)
 
