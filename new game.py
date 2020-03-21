@@ -3,14 +3,20 @@ from pygame.locals import *
 import random
 import time
 pygame.init()
-
+#   height and width
 HEIGHT = 800
 WIDTH = 600
+
+#   colors
+
 RED = (255, 0, 0)
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
-display = pygame.display.set_mode((HEIGHT, WIDTH))
+
+# CLOCK TO  set FPS(FRAMES PER SECOND)
 CLOCK = pygame.time.Clock()
+
+#   create a new text file named as new_High (will be created automatically)
 High = open('new_High.txt', 'a')
 HighScore_Open = open('new_High.txt')
 head = pygame.image.load('head.png')
@@ -48,6 +54,8 @@ class App:
             print('no highscore')
 
     def drawgrid(self):
+        #draw the grid using for loop
+        
         for i in range(30):
             pygame.draw.line(self.display, WHITE, (0, i * 30 + i), (HEIGHT, i * 30 + i), 1)
             pygame.draw.line(self.display, WHITE, (i * 30 + i, 0), (i * 30 + i, HEIGHT), 1)
@@ -160,7 +168,7 @@ class App:
             HighScore_Open.close()
             if (self.snakelen - 1) * 5 > self.Scores[0]:
                 self.Scoress[0] = (self.snakelen - 1) * 5
-         #   HighScore_Open.close()
+  
 
 game = App()
 game.maybe_i_dont_know()
